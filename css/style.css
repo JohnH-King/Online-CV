@@ -1,0 +1,755 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/*google fonts api*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* color options:
+  Cornflower blue: #6495ED
+  Dark Gray: #A9A9A9
+  CORNSILK: #FFF8DC
+  dARK cYAN #008B8B
+
+*/
+body {
+  background-color: #D5ECEC;//#960905;
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  width: 100%;
+  margin: 0;
+  font-size: 1vh;
+  font-weight: bold;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid gold;
+}
+
+html{
+  margin:0;
+  padding: 0;
+}
+
+footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+}
+
+button {
+  border: 2px solid orange;
+  color: black;
+  padding: 10px 20px;
+}
+
+button:hover {
+  background-color: gray;
+  color: black;
+}
+
+.a {
+  padding: 10px;
+  margin: auto;
+  font-style: normal;
+}
+
+.hide {
+  position: absolute;
+  visibility: hidden;
+  top: -1px;
+  left: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+/*style for itembase target to be hidden*/
+.one {
+  background-color: gold;
+  /*  amother color convention available hsla(250,75%,72%,0.75);*/
+
+  font-size: 20px;
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  animation-name: first;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+form, .form-fields {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+p {
+  font-size: 2vh;
+  padding: 10px;
+  margin: 5px;
+  font-weight: normal;
+  align-items: flex-start;
+}
+
+.h1 {
+  justify-content: center;
+  align-items: center;
+  font-size: 2vh;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.h2 {
+  font-size: 2vh;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.h3 {
+  font-size: 2vh;
+  padding: 10px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.h4 {
+  font-size: 2vh;
+  padding: 10px;
+  align-items: flex-start;
+  margin: 10px;
+  font-weight: bold;
+}
+
+hr {
+  border-top: 2px solid #960905;
+  width: 100%;
+  margin: 0;
+}
+
+#like_button_container {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+}
+
+#img {
+  width: 100%;
+  height: 100%;
+}
+
+#scrollToTopBtn {
+  display: flex;
+  flex: 1;
+  background-color: orange;
+  border: none;
+  border-radius: 50%;
+  color: black;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 48px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+#two {
+  background-color: #008B8B;
+  border: 2px solid #DDF0F0;
+  padding: 20px;
+}
+
+#one {
+  background-color: black;
+  border: 1px solid #DDF0F0;
+  animation-name: second;
+  animation-duration: 3s;
+  animation-timing-function: ease;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  width: 75%;
+  margin: auto;
+  padding: 5px;
+}
+
+#default {
+  font-size: 1rem;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: silver;
+}
+
+#data {
+  width: 100%;
+  height: 100%;
+  font-size: 1rem;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#chuck {
+  margin: 0 auto;
+}
+
+#logo {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin-bottom: 10px;
+  padding: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* animations */
+@keyframes first {
+  0% {
+    background-color: gray;
+  }
+
+  25% {
+    background-color: lightblue;
+  }
+
+  50% {
+    background-color: red;
+  }
+
+  75% {
+    background-color: orange;
+  }
+
+  100% {
+    background-color: white;
+  }
+}
+
+@keyframes second {
+
+  /* shades of red */
+  0% {
+    background-color: #D6EAF8 ;
+  }
+
+  25% {
+    background-color: #AED6F1 ;
+  }
+
+  50% {
+    background-color: #85C1E9;
+  }
+
+  75% {
+    background-color: #5DADE2 ;
+  }
+
+  100% {
+    background-color: #3498DB;
+  }
+}
+
+/* input styling */
+input {
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+  width: 40%;
+}
+
+legend {
+  display: block;
+  margin: 10px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border: none;
+}
+
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 90%;
+  width: 60%;
+  padding: 10px;
+}
+
+/* star style*/
+.checked {
+  color: orange;
+}
+.fa-star-half-full{
+  color:orange;
+}
+.fa-star {
+}
+
+/* overall body flex (perhaps redundant?)*/
+.flexer {
+  display: flex;
+  flex: 1;
+  max-width: 975px;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #97D0D0
+}
+
+/* cards */
+.card {
+  display: flex;
+  overflow-x: auto;
+  flex: 1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #008C8C;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) transition: 0.3s;
+  border-radius: 5px;
+}
+
+.card: hover {
+  box-shadow: 0 8px 16px 0 rgba(0.0.0.0, 2);
+}
+
+iframe {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 10px 16px;
+}
+
+/* containers for divs and more*/
+.card-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container {
+  overflow-x: auto;
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+  /*justify-content: center;*/
+  align-items: center;
+  background-color: lightblue;
+}
+
+.flex-container1 {
+  display: flex;
+  overflow-x: auto;
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(#008b8b 0%, #8b8b00 100%);
+}
+
+.flex-container-attention {
+  display: flex;
+  overflow-x: auto;
+  flex: 1;
+  width: 100%;
+  border-radius: 150px;
+  flex-direction: column;
+}
+
+.flex-container2 {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.flex-container-grid1 {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  overflow-y: auto;
+  overflow-x: auto;
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container-grid2 {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20%;
+  overflow-y: auto;
+  overflow-x: auto;
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-container4 {
+  display: flex;
+  overflow-x: hidden;
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  font-size: 2vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(#00D8D8 20%, white 100%);
+}
+
+.flex-container5 {
+  display: flex;
+  overflow-x: auto;
+  flex: 1;
+  width: 90%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #008C8C;
+  margin: 10px;
+  padding: 10px;
+}
+
+.flex-container6 {
+  display: flex;
+  overflow-x: auto;
+  flex: 1;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-container {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: auto;
+  flex: 1;
+  font-size: 2vh;
+  flex-wrap: wrap;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0px;
+  padding: 0px;
+  padding-top: 5px;
+  background-image: linear-gradient(#eaeef0 0%, #A9A9A9 100%);
+  border: 2px solid black;
+}
+
+.formIn-container {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightblue;
+  border: 1px solid lightcyan;
+}
+
+.formIn-container>textarea {
+  width: 80%;
+}
+
+.flex-container2>div {
+  background-color: #f1f1f1;
+  margin: 0px;
+  padding: 0px;
+  font-size: 30px;
+}
+
+/* Navigation bar */
+.topnav {
+  position: sticky;
+  top: 0px;
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  /* #333 */
+  width: 100%;
+  z-index: 1;
+  margin: auto;
+  justify-content: center;
+  /* this makes the sticky postition not get overlapped by something like flip tiles */
+}
+
+.topnav a {
+  float: left;
+  color: black;
+  background-color: aqua;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 16px;
+  /* width: 95%;  this make the bars flex "wrap"*/
+}
+
+.topnav a:hover {
+  background-color: gray;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  /* #4CAF50 */
+  color: black;
+}
+
+
+
+/* flip cards */
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 0 15px 30px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /*-- default for safari browser --*/
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.flip-card-back {
+  color: red;
+  background-color: white;
+  transform: rotateY(180deg);
+}
+
+.flip-card-front {
+  background-color: #bbb;
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+}
+
+.flip-card-back>p {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.flip-card-back p span {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  margin: 1.25rem;
+}
+
+/* game cards/tiles */
+.game-card {
+  background-color: transparent;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  display: flex;
+  flex: 1;
+  width: 250px;
+  height: 83px;
+  min-height: 20px;
+  perspective: 1000px;
+  margin: 0 15px 30px;
+}
+video {
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+.game-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.game-card:hover .game-card-inner {
+  transform: rotateX(180deg);
+}
+
+.game-card .p{
+  font-size: 1.75rem;
+}
+
+.game-card-front, .game-card-back {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  /*-- default for safari browser --*/
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.game-card-back {
+  color: red;
+  background-color: white;
+  transform: rotateX(180deg);
+}
+#growit{
+  width:35%;
+  height: 20vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  padding:10px;border: 1px solid #eee;
+  box-shadow:  0 2px 3px #ccc;
+  background-color: #ccc;
+}
+
+#growit:hover{
+  width: 100%;
+  height: 60vh
+}
+
+.game-card-front {
+  background-color: #bbb;
+}
+
+.game-card-front img {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.game-card-back>p {
+  display: flex;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin: auto;
+  font-size: 0.88rem;
+  color: black;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-card-back p span {
+  display: block;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+.containerc {
+	background-color: #960905;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 200px;
+  width:100%;
+  border: 1px solid black;
+  box-shadow: 0 5px 0 10px #000010;
+  margin-top: 7px;
+  margin-bottom: 15px;
+
+	svg {
+		max-width: 45rem;
+		width: 100%;
+		height: auto;
+		fill: none;
+		stroke: white;
+		stroke-width: 8;
+
+		tspan > tspan {
+			stroke-dasharray: 1500;
+			stroke-dashoffset: -1500;
+
+			@for $i from 1 through 15 {
+
+				&:nth-of-type(#{$i}) {
+					animation: draw 300ms #{$i * 150}ms forwards;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+@keyframes draw {
+
+	100% {
+		stroke-dashoffset: 0;
+	}
+
+}
+
+#CText{
+  margin: 0px;
+  padding: 0px;
+}
