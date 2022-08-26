@@ -14,6 +14,9 @@
   dARK cYAN #008B8B
 
 */
+.row{
+  width:100%
+}
 body {
   background-color: #D5ECEC;//#960905;
   font-family: 'Open Sans', sans-serif;
@@ -655,7 +658,7 @@ video {
 }
 #growit{
   width:65%;
-  height: 30vh;
+  height: 35vh;
   margin-left: 10%;
   margin-right: auto;
   margin-bottom: 20px;
@@ -665,8 +668,8 @@ video {
 }
 
 #growit:hover{
-  width: 100%;
-  height: 60vh
+  width: 95%;
+  height: 70vh
 }
 
 .game-card-front {
