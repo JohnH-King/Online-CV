@@ -434,6 +434,20 @@ iframe {
   color: #475569;
 }
 
+.degree-preview {
+  margin-top: 1rem;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+}
+
+.degree-preview img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  min-height: 180px;
+}
+
 @media (max-width: 768px) {
   .hero-panel {
     padding: 1.5rem;
