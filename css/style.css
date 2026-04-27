@@ -516,7 +516,7 @@ iframe {
 }
 
 .achievement-list li::before {
-  content: "✓";
+  content: ">";
   position: absolute;
   left: 0;
   color: #0284c7;
@@ -526,17 +526,19 @@ iframe {
 /* Portfolio Grid */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  max-width: 100%;
 }
 
 .portfolio-item {
   margin: 0;
-  border-radius: 16px;
+  border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #ffffff;
+  min-width: 0;
 }
 
 .portfolio-item:hover {
@@ -548,7 +550,8 @@ iframe {
   width: 100%;
   display: block;
   object-fit: cover;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
+  max-height: 170px;
 }
 
 .portfolio-item figcaption {
@@ -565,8 +568,8 @@ iframe {
   }
   
   .portfolio-grid {
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
   }
 }
 
@@ -579,7 +582,7 @@ iframe {
   }
   
   .portfolio-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
@@ -925,7 +928,9 @@ iframe {
 .site-footer {
   background-color: #0f172a;
   color: #e2e8f0;
-  padding: 2.5rem 1.5rem 1.5rem;
+  display: block;
+  width: 100%;
+  padding: 2.25rem 1.25rem 1.25rem;
   margin-top: 3rem;
 }
 
@@ -933,9 +938,9 @@ iframe {
   max-width: 1120px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 2rem;
-  margin-bottom: 2rem;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .footer-section h4 {
@@ -1215,4 +1220,217 @@ svg {
 #CText{
   margin: 0px;
   padding: 0px;
+}
+
+/* ============================================
+   DARK MODE SUPPORT
+   ============================================ */
+
+:root {
+  --bg-light: #F7FAFC;
+  --bg-dark-mode: #1e293b;
+  --text-light: #0F172A;
+  --text-dark-mode: #e2e8f0;
+}
+
+body.dark-mode {
+  background-color: var(--bg-dark-mode);
+  color: var(--text-dark-mode);
+}
+
+body.dark-mode .hero-panel,
+body.dark-mode .section-card,
+body.dark-mode .experience-card,
+body.dark-mode .cert-card,
+body.dark-mode .summary-card {
+  background-color: #0f172a;
+  border-color: rgba(148, 163, 184, 0.1);
+}
+
+body.dark-mode .section-title,
+body.dark-mode .category-label,
+body.dark-mode .experience-card h3,
+body.dark-mode .cert-card h3 {
+  color: #f8fafc;
+}
+
+body.dark-mode .portfolio-item {
+  background-color: #1e293b;
+}
+
+body.dark-mode .portfolio-item figcaption {
+  color: var(--text-dark-mode);
+}
+
+body.dark-mode p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .topnav {
+  background-color: #0f172a;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+}
+
+.dark-mode-toggle {
+  background: none;
+  border: none;
+  color: #0284c7;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 0.75rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.dark-mode-toggle:hover {
+  color: #38bdf8;
+  transform: scale(1.1);
+}
+
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-left {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.page-section {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.portfolio-item, .tech-badge, .experience-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   MOBILE PORTFOLIO
+   ============================================ */
+
+@media (max-width: 768px) {
+  .topnav a {
+    padding: 12px 10px;
+    font-size: 0.88rem;
+  }
+  .dark-mode-toggle {
+    padding: 0.6rem;
+  }
+  .section-card {
+    padding: 1.5rem 1rem;
+  }
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+  .portfolio-item img {
+    max-height: 130px;
+  }
+  .portfolio-item figcaption {
+    padding: 0.65rem 0.5rem;
+    font-size: 0.78rem;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 640px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.65rem;
+  }
+  .portfolio-item img {
+    max-height: 112px;
+  }
+}
+
+/* ============================================
+   FOOTER MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 1.75rem 1rem 1rem;
+  }
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-footer {
+    padding: 1.5rem 1rem 1rem;
+    margin-top: 2rem;
+  }
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .footer-section h4 {
+    font-size: 0.8rem;
+    margin-bottom: 0.35rem;
+  }
+  .footer-section p {
+    font-size: 0.78rem;
+    margin: 0.25rem 0;
+    overflow-wrap: anywhere;
+  }
+  .footer-bottom {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+}
+
+/* ============================================
+   TABLET/iPad
+   ============================================ */
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .portfolio-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ============================================
+   ACCESSIBILITY
+   ============================================ */
+
+a:focus, button:focus, input:focus {
+  outline: 2px solid #0284c7;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
