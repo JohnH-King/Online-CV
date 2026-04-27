@@ -18,24 +18,25 @@
   width:100%
 }
 body {
-  background-color: #D5ECEC;//#960905;
+  background-color: #F7FAFC;
   font-family: 'Open Sans', sans-serif;
   display: flex;
   margin: 0;
-  font-size: 1vh;
-  font-weight: bold;
-  overflow-y: auto;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #0F172A;
   overflow-x: hidden;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  border: 1px solid gold;
+  min-height: 100vh;
   width: 100%;
 }
 
 html{
   margin:0;
   padding: 0;
+  scroll-behavior: smooth;
 }
 
 footer {
@@ -95,10 +96,12 @@ form, .form-fields {
 
 
 p {
-  font-size: 2vh;
-  padding: 10px;
-  margin: 5px;
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  margin: 0 0 0.85rem;
   font-weight: normal;
+  color: #334155;
+  line-height: 1.8;
   align-items: flex-start;
 }
 
@@ -353,9 +356,9 @@ iframe {
   flex-wrap: wrap;
   width: 100%;
   flex-direction: column;
-  /*justify-content: center;*/
   align-items: center;
-  background-color: lightblue;
+  background-color: transparent;
+  padding: 0 1.25rem;
 }
 
 .flex-container1 {
@@ -497,38 +500,109 @@ iframe {
 /* Navigation bar */
 .topnav {
   position: sticky;
-  top: 0px;
+  top: 0;
   display: flex;
-  flex: 1;
-  overflow: hidden;
-  /* #333 */
-  width: 100%;
-  z-index: 1;
-  margin: 0px;
+  align-items: center;
   justify-content: center;
-  /* this makes the sticky postition not get overlapped by something like flip tiles */
+  width: 100%;
+  z-index: 10;
+  margin: 0;
+  background-color: #0f172a;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
 }
 
 .topnav a {
-  float: left;
-  color: black;
-  background-color: aqua;
+  color: #e2e8f0;
   text-align: center;
-  padding: 14px 16px;
+  padding: 16px 22px;
   text-decoration: none;
-  font-size: 16px;
-  /* width: 95%;  this make the bars flex "wrap"*/
+  font-size: 1rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .topnav a:hover {
-  background-color: gray;
-  color: black;
+  background-color: rgba(56, 189, 248, 0.18);
+  color: #ffffff;
 }
 
 .topnav a.active {
-  background-color: #4CAF50;
-  /* #4CAF50 */
-  color: black;
+  background-color: #38bdf8;
+  color: #0f172a;
+}
+
+.contact-card {
+  width: min(100%, 900px);
+  margin: 0 auto 1.5rem;
+  padding: 1.75rem;
+  border-radius: 18px;
+  background-color: #ffffff;
+  box-shadow: 0 20px 55px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(15, 23, 42, 0.05);
+}
+
+.contact-card h2 {
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #0f172a;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.85rem;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.contact-list a {
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.contact-list a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.social-links a {
+  color: #0f172a;
+  text-decoration: none;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background-color: #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.social-links a:hover {
+  background-color: #cbd5e1;
+}
+
+.link-container {
+  display: block;
+  overflow: visible;
+  flex: 1;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+
+#CText{
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -707,24 +781,26 @@ video {
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
 
 .containerc {
-	background-color: #960905;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	height: 200px;
-  width:100%;
-  border: 1px solid black;
-  box-shadow: 2px 5px 5px 10px #000010;
-  margin-top: 7px;
-  margin-bottom: 15px;
+  background-color: #0f172a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  width: 100%;
+  border: none;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem 0;
 }
-	svg {
-		max-width: 45rem;
-		width: 100%;
-		height: auto;
-		fill: none;
-		stroke: white;
-		stroke-width: 8;
+
+svg {
+  max-width: 45rem;
+  width: 100%;
+  height: auto;
+  fill: none;
+  stroke: #f8fafc;
+  stroke-width: 8;
 
 		tspan > tspan {
 			stroke-dasharray: 1500;
