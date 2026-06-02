@@ -1,37 +1,49 @@
-## Welcome to GitHub Pages
+# John King Online CV
 
-You can use the [editor on GitHub](https://github.com/Manuel83/sample/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+This repository contains John King's current 2026 CV and software engineering portfolio site.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The primary public site is the static portfolio at `index.html`, supported by `css/style.css`, `js/`, `img/`, and the local library assets in `lib/`. It presents the current profile, skills, experience, education, portfolio work, certifications, contact details, and downloadable CV PDF.
 
-### Markdown
+## Primary entry points
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- `index.html` - the active 2026 portfolio and CV site.
+- `img/John_King_CV.pdf` - the downloadable CV linked from the site.
+- `server.js` - optional dependency-free Node static server for local preview or Node-based hosting.
+- `package.json` - project metadata for the portfolio site.
 
-```markdown
-Syntax highlighted code block
+Canonical public URL: `https://johnh-king.github.io/Online-CV/`.
 
-# Header 1
-## Header 2
-### Header 3
+## Public HTML audit
 
-- Bulleted
-- List
+- `index.html` - canonical 2026 CV page, with canonical metadata for the public URL.
+- `hindex.html` - archived Node/Mongo demo, marked `noindex,nofollow` and linked back to the canonical CV.
+- `render-html/index.html` - archived rendered CV experiment, marked `noindex,nofollow` and linked back to the canonical CV.
+- `page4.html` and `page6.html` - archived Steam API tutorial pages, marked `noindex,nofollow` and linked back to the canonical CV.
 
-1. Numbered
-2. List
+## Run locally
 
-**Bold** and _Italic_ and `Code` text
+The site can be opened directly from `index.html`, or served through Node:
 
-[Link](url) and ![Image](src)
+```sh
+npm start
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Then open `http://localhost:8080`.
 
-### Jekyll Themes
+## Project layout
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Manuel83/sample/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+- `index.html` - current portfolio markup and active page metadata.
+- `css/style.css` - current portfolio styling, including responsive layout and dark mode support.
+- `img/` - profile images, certificates, portfolio screenshots, and CV PDFs.
+- `lib/` - vendored Bootstrap, jQuery, and validation assets used by the site.
 
-### Support or Contact
+## Legacy material
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Some older experiments are retained for historical reference, but they are not part of the active 2026 CV site:
+
+- `hindex.html`, `render-html/`, `app.js`, `api/`, `models/`, and `routes/` contain earlier Node.js, MongoDB, and Heroku CV/API experiments.
+- `page4.html`, `page6.html`, `js/script.js`, and `api/steam/` contain older API tutorial/demo code.
+- Legacy HTML demo pages are marked with archive notices and `noindex` metadata so the root portfolio remains the clear primary site.
+- Legacy Node demos may need their own dependency refresh before they can be run again.
+
+Current portfolio changes should generally be made in `index.html`, `css/style.css`, `js/`, and `img/`.
