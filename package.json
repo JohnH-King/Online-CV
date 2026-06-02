@@ -5,15 +5,32 @@
   "description": "John King's 2026 CV and software engineering portfolio site.",
   "homepage": "https://johnh-king.github.io/Online-CV/",
   "main": "server.js",
+  "type": "commonjs",
   "engines": {
     "node": ">=18"
   },
   "devDependencies": {},
   "scripts": {
     "start": "node server.js",
+    "serve": "node server.js",
     "preview": "node server.js",
-    "test": "echo \"No automated tests configured for the static portfolio.\""
+    "check": "node --check server.js",
+    "test": "npm run check"
   },
+  "files": [
+    "assets/",
+    "css/",
+    "img/",
+    "js/",
+    "lib/",
+    "react/",
+    "hindex.html",
+    "index.html",
+    "page4.html",
+    "page6.html",
+    "render-html/index.html",
+    "server.js"
+  ],
   "keywords": [
     "cv",
     "portfolio",
@@ -22,8 +39,5 @@
     "static-site"
   ],
   "author": "John King",
-  "license": "ISC",
-  "directories": {
-    "doc": "docs"
-  }
+  "license": "ISC"
 }

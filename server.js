@@ -3,11 +3,31 @@ const http = require('http');
 const path = require('path');
 
 const host = process.env.HOST || '0.0.0.0';
-const port = process.env.PORT || 8080;
+const configuredPort = Number(process.env.PORT);
+const port = Number.isInteger(configuredPort) && configuredPort >= 0 ? configuredPort : 8080;
 const siteRoot = path.resolve(__dirname);
+const homepage = '/index.html';
 const canonicalSiteUrl = 'https://johnh-king.github.io/Online-CV/';
 
-const legacyPages = new Set([
+// Publish only the static CV site. Legacy API/source folders remain archival.
+const publicSiteFiles = new Set([
+  '/index.html',
+  '/hindex.html',
+  '/page4.html',
+  '/page6.html',
+  '/render-html/index.html'
+]);
+
+const publicSiteDirectories = new Set([
+  'assets',
+  'css',
+  'img',
+  'js',
+  'lib',
+  'react'
+]);
+
+const archivedPages = new Set([
   '/hindex.html',
   '/page4.html',
   '/page6.html',
@@ -33,14 +53,25 @@ const mimeTypes = {
   '.woff2': 'font/woff2'
 };
 
-function sendFile(res, filePath) {
+function sendNotFound(res) {
+  res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
+  res.end('Not found');
+}
+
+function sendFile(req, res, filePath) {
   const extension = path.extname(filePath).toLowerCase();
-  const stream = fs.createReadStream(filePath);
 
   res.writeHead(200, {
     'Content-Type': mimeTypes[extension] || 'application/octet-stream',
     'X-Content-Type-Options': 'nosniff'
   });
+
+  if (req.method === 'HEAD') {
+    res.end();
+    return;
+  }
+
+  const stream = fs.createReadStream(filePath);
 
   stream.pipe(res);
   stream.on('error', () => {
@@ -51,63 +82,100 @@ function sendFile(res, filePath) {
   });
 }
 
-function resolveRequestPath(req) {
-  let pathname = '/index.html';
-
+function getRequestPathname(req) {
   try {
     const requestUrl = new URL(req.url, `http://${req.headers.host || 'localhost'}`);
-    pathname = decodeURIComponent(requestUrl.pathname);
+    return decodeURIComponent(requestUrl.pathname).replace(/\\/g, '/');
   } catch (error) {
-    pathname = '/index.html';
+    return homepage;
   }
-
-  if (pathname.endsWith('/')) {
-    pathname += 'index.html';
-  }
-
-  const relativePath = pathname.replace(/^\/+/, '');
-  const filePath = path.resolve(siteRoot, relativePath);
-
-  return { filePath, pathname };
 }
 
-function isInsideSiteRoot(filePath) {
-  const relativePath = path.relative(siteRoot, filePath);
+function normalizeSitePath(pathname) {
+  if (!pathname || pathname === '/') {
+    return homepage;
+  }
+
+  const rootedPathname = pathname.startsWith('/') ? pathname : `/${pathname}`;
+
+  if (rootedPathname.endsWith('/')) {
+    return `${rootedPathname}index.html`;
+  }
+
+  return rootedPathname;
+}
+
+function isInsideDirectory(directory, filePath) {
+  const relativePath = path.relative(directory, filePath);
 
   return relativePath === '' || (!relativePath.startsWith('..') && !path.isAbsolute(relativePath));
 }
 
-const server = http.createServer((req, res) => {
-  const { filePath, pathname } = resolveRequestPath(req);
+function resolvePublicFilePath(pathname) {
+  const relativePath = pathname.replace(/^\/+/, '');
+  const filePath = path.resolve(siteRoot, relativePath);
 
-  if (!isInsideSiteRoot(filePath)) {
-    res.writeHead(403, { 'Content-Type': 'text/plain; charset=utf-8' });
-    res.end('Forbidden');
+  if (publicSiteFiles.has(pathname)) {
+    return isInsideDirectory(siteRoot, filePath) ? filePath : null;
+  }
+
+  const [topLevelDirectory] = relativePath.split('/');
+
+  if (!publicSiteDirectories.has(topLevelDirectory)) {
+    return null;
+  }
+
+  const publicRoot = path.resolve(siteRoot, topLevelDirectory);
+
+  return isInsideDirectory(publicRoot, filePath) ? filePath : null;
+}
+
+const server = http.createServer((req, res) => {
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
+    res.writeHead(405, {
+      'Allow': 'GET, HEAD',
+      'Content-Type': 'text/plain; charset=utf-8'
+    });
+    res.end('Method not allowed');
     return;
   }
 
-  if (legacyPages.has(pathname) || pathname.startsWith('/api/steam')) {
+  const pathname = normalizeSitePath(getRequestPathname(req));
+  const filePath = resolvePublicFilePath(pathname);
+
+  if (archivedPages.has(pathname)) {
     res.setHeader('X-Robots-Tag', 'noindex, nofollow');
     res.setHeader('Link', `<${canonicalSiteUrl}>; rel="canonical"`);
   }
 
+  if (!filePath) {
+    if (!path.extname(pathname)) {
+      sendFile(req, res, path.join(siteRoot, 'index.html'));
+      return;
+    }
+
+    sendNotFound(res);
+    return;
+  }
+
   fs.stat(filePath, (error, stats) => {
     if (!error && stats.isFile()) {
-      sendFile(res, filePath);
+      sendFile(req, res, filePath);
       return;
     }
 
     if (!path.extname(pathname)) {
-      sendFile(res, path.join(siteRoot, 'index.html'));
+      sendFile(req, res, path.join(siteRoot, 'index.html'));
       return;
     }
 
-    res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-    res.end('Not found');
+    sendNotFound(res);
   });
 });
 
 server.listen(port, host, () => {
+  const address = server.address();
+  const actualPort = address && typeof address === 'object' ? address.port : port;
   const displayHost = host === '0.0.0.0' ? 'localhost' : host;
-  console.log(`John King 2026 CV site available at http://${displayHost}:${port}`);
+  console.log(`John King 2026 CV site available at http://${displayHost}:${actualPort}`);
 });

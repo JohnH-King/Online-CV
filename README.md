@@ -8,7 +8,7 @@ The primary public site is the static portfolio at `index.html`, supported by `c
 
 - `index.html` - the active 2026 portfolio and CV site.
 - `img/John_King_CV.pdf` - the downloadable CV linked from the site.
-- `server.js` - optional dependency-free Node static server for local preview or Node-based hosting.
+- `server.js` - dependency-free Node static server for local preview or Node-based hosting.
 - `package.json` - project metadata for the portfolio site.
 
 Canonical public URL: `https://johnh-king.github.io/Online-CV/`.
@@ -29,6 +29,14 @@ npm start
 ```
 
 Then open `http://localhost:8080`.
+
+`npm start`, `npm run serve`, and `npm run preview` all run the same static CV server. The server publishes only the portfolio homepage, archived public HTML pages, and static asset folders; legacy Express/Mongo/API source files are not part of the runnable site.
+
+```sh
+npm test
+```
+
+Runs a lightweight syntax check for the static server.
 
 ## Project layout
 
