@@ -24,9 +24,11 @@
 
   <!-- loading nasa API on load, instead of through an Element -->
   <div class="topnav">
+    <a class="nav-brand" href="#about" aria-label="John King home"><span>JK</span> John King</a>
     <div class="nav-left">
       <a class="active" href="#about">About</a>
       <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
       <a href="img/John_King_CV.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i>  CV</a>
     </div>
@@ -37,26 +39,44 @@
 
   <main class="page-content">
     <section id="about" class="page-section hero-panel">
-      <div class="row align-items-center">
-        <div class="col-lg-4 col-sm-12 mb-4 mb-lg-0">
+      <div class="hero-layout">
+        <aside class="hero-media" aria-label="Profile and academic credential">
           <div class="hero-image-card">
             <img src="img/Formal.jpg" alt="John King" class="profile-image" />
           </div>
-        </div>
-        <div class="col-lg-8 col-sm-12">
-          <div class="hero-copy">
-            <p class="eyebrow">John King - Software Engineer</p>
-            <h1 class="page-title text-info">Web, Java & Android Developer</h1>
-            <p>Experienced software engineer specializing in modern CSS, JavaScript, Java, and Android development. I build responsive web interfaces, robust backend services, native mobile applications, and deliver practical support for production systems.</p>
-            <p>My focus is on clean UI, reliable data integration, and collaborative engineering that keeps systems running smoothly across all platforms.</p>
-            <div class="hero-highlights">
-              <p>- Front-end development with responsive UI, accessibility, and polished user experience.</p>
-              <p>- Enterprise Java systems and PostgreSQL integration for production workflows.</p>
-              <p>- Native Android application development with intuitive mobile experiences.</p>
-              <p>- Technical support in industrial environments with a strong operations mindset.</p>
-              <p>- NWU graduate: BSc Information Technology and BSc Honours Computer Science & IT.</p>
+          <div class="credential-card">
+            <strong>BSc Honours</strong>
+            <span>Computer Science and Information Technology</span>
+            <small>North-West University</small>
+          </div>
+        </aside>
+        <div class="hero-copy">
+          <p class="eyebrow">Honours IT Graduate | Software Engineer</p>
+          <h1 class="page-title">Full-stack developer focused on production-ready software.</h1>
+          <p class="hero-lede">I build practical web, backend, and Android systems with a strong foundation in computer science, information systems, data integration, and support for live operational environments.</p>
+          <div class="hero-metrics" aria-label="Profile highlights">
+            <div>
+              <strong>BSc Hons</strong>
+              <span>CS & IT</span>
             </div>
+            <div>
+              <strong>Java + SQL</strong>
+              <span>Backend workflows</span>
+            </div>
+            <div>
+              <strong>Android</strong>
+              <span>Native mobile apps</span>
+            </div>
+          </div>
+          <ul class="hero-highlights">
+            <li>Responsive front-end development with accessible, maintainable interfaces.</li>
+            <li>Java, C#, Python, REST APIs, PostgreSQL, and SQL-backed workflow tooling.</li>
+            <li>Machine learning exposure through NLP, BERT, TensorFlow, and model deployment coursework.</li>
+            <li>Operational support mindset from manufacturing, logistics, and production systems.</li>
+          </ul>
+          <div class="hero-actions">
             <a href="img/John_King_CV.pdf" class="cta-button" download><i class="fa fa-download"></i> Download Resume</a>
+            <a href="https://github.com/JohnH-King" class="secondary-button" target="_blank" rel="noopener"><i class="fa fa-github"></i> View GitHub</a>
           </div>
         </div>
       </div>
@@ -64,7 +84,7 @@
 
     <section class="page-section summary-card">
       <div class="summary-content">
-        <p class="summary-text"><strong>Full-stack developer</strong> with expertise across web, backend, and mobile platforms. Proven track record delivering production systems in manufacturing, logistics, and software development. NWU Information Science graduate committed to clean code, scalability, and continuous learning.</p>
+        <p class="summary-text"><strong>Graduate software engineer with BSc Honours credentials</strong>, practical full-stack experience, and a portfolio spanning responsive interfaces, Java backend tooling, SQL data workflows, Android development, and applied machine learning projects.</p>
       </div>
     </section>
 
@@ -74,14 +94,17 @@
       </div>
       <div class="experience-grid">
         <article class="experience-card">
+          <span class="card-kicker">Production systems</span>
           <h3>Industrial integration</h3>
           <p>Built and supported systems for manufacturing and logistics with data ingestion, validation, and workflow automation.</p>
         </article>
         <article class="experience-card">
+          <span class="card-kicker">Backend engineering</span>
           <h3>Java backend engineering</h3>
           <p>Developed Java-based tools for PostgreSQL import processes and maintained data integrity across live database environments.</p>
         </article>
         <article class="experience-card">
+          <span class="card-kicker">Systems support</span>
           <h3>Operational support</h3>
           <p>Provided on-site technical support working closely with engineers to troubleshoot issues and improve system readiness.</p>
         </article>
@@ -94,6 +117,7 @@
       </div>
       <div class="experience-grid">
         <article class="experience-card">
+          <span class="card-kicker">Honours degree</span>
           <h3>Bachelor of Science Honours</h3>
           <p>Computer Science and Information Technology - North-West University - May 2023</p>
           <div class="degree-preview">
@@ -101,6 +125,7 @@
           </div>
         </article>
         <article class="experience-card">
+          <span class="card-kicker">Undergraduate degree</span>
           <h3>Bachelor of Science</h3>
           <p>Information Technology - North-West University - June 2021</p>
           <div class="degree-preview">
@@ -149,7 +174,7 @@
     </div>
 
     <div class="achievements-section">
-      <h3 class="category-label" style="margin-top: 2rem;">Key achievements</h3>
+      <h3 class="category-label">Key achievements</h3>
       <ul class="achievement-list">
         <li>Delivered multiple production-grade web and backend projects using modern CSS, JavaScript, and Java</li>
         <li>Built responsive front-end interfaces and integrated them with REST APIs and SQL-backed systems</li>
@@ -160,36 +185,57 @@
     </div>
   </section>
 
-  <section class="page-section section-card">
+  <section id="projects" class="page-section section-card">
     <h2 class="section-title">Portfolio & Projects</h2>
     <div class="portfolio-grid">
       <figure class="portfolio-item">
         <img src="img/Picture2.png" alt="Data analysis and reporting dashboard" loading="lazy" decoding="async" />
-        <figcaption>Data Analysis Dashboard</figcaption>
+        <figcaption>
+          <strong>Data Analysis Dashboard</strong>
+          <span>Reporting interface for structured business insight and decision support.</span>
+        </figcaption>
       </figure>
       <figure class="portfolio-item">
         <img src="img/report.png" alt="Business reporting interface" loading="lazy" decoding="async" />
-        <figcaption>Business Reports</figcaption>
+        <figcaption>
+          <strong>Business Reports</strong>
+          <span>Report views designed for operational tracking and stakeholder review.</span>
+        </figcaption>
       </figure>
       <figure class="portfolio-item">
         <img src="img/NLP.jpg" alt="Natural Language Processing project" loading="lazy" decoding="async" />
-        <figcaption>NLP Sentiment Analysis</figcaption>
+        <figcaption>
+          <strong>NLP Sentiment Analysis</strong>
+          <span>Text classification workflow using modern natural language processing concepts.</span>
+        </figcaption>
       </figure>
       <figure class="portfolio-item">
         <img src="img/Movie_Review_Evergreen_Tech.jpg" alt="Movie review classification system" loading="lazy" decoding="async" />
-        <figcaption>ML Classification Model</figcaption>
+        <figcaption>
+          <strong>ML Classification Model</strong>
+          <span>Movie review classifier built around supervised learning and evaluation.</span>
+        </figcaption>
       </figure>
       <figure class="portfolio-item">
         <img src="img/Python_NGINX_BERT.jpg" alt="Python and BERT integration" loading="lazy" decoding="async" />
-        <figcaption>Python BERT Integration</figcaption>
+        <figcaption>
+          <strong>Python BERT Integration</strong>
+          <span>Applied Python, BERT, and deployment tooling for NLP-focused services.</span>
+        </figcaption>
       </figure>
       <figure class="portfolio-item">
         <img src="img/MVCCert.jpg" alt="ASP.NET MVC architecture project" loading="lazy" decoding="async" />
-        <figcaption>ASP.NET MVC Architecture</figcaption>
+        <figcaption>
+          <strong>ASP.NET MVC Architecture</strong>
+          <span>Structured C# web development using MVC architecture and maintainable layers.</span>
+        </figcaption>
       </figure>
       <figure class="portfolio-item">
         <img src="img/Spice.png" alt="Specialty project" loading="lazy" decoding="async" />
-        <figcaption>Specialty Project</figcaption>
+        <figcaption>
+          <strong>Product Prototype</strong>
+          <span>Domain-specific interface work focused on usability and presentation.</span>
+        </figcaption>
       </figure>
     </div>
   </section>
@@ -198,17 +244,17 @@
     <h2 class="section-title">Professional Certifications</h2>
     <div class="certifications-grid">
       <article class="cert-card">
-        <h3>Learn BERT - Most Powerful NLP Algorithm by Google</h3>
+        <h3>BERT NLP Foundations</h3>
         <p class="cert-issuer">Udemy</p>
         <p class="cert-desc">Advanced natural language processing and BERT model fine-tuning</p>
       </article>
       <article class="cert-card">
-        <h3>Build Movie Review Classification with BERT and TensorFlow</h3>
+        <h3>BERT and TensorFlow Classification</h3>
         <p class="cert-issuer">Udemy</p>
         <p class="cert-desc">Machine learning classification and TensorFlow implementation</p>
       </article>
       <article class="cert-card">
-        <h3>Deployment of Machine Learning Models in Production</h3>
+        <h3>Machine Learning Model Deployment</h3>
         <p class="cert-issuer">Udemy</p>
         <p class="cert-desc">Production deployment, scaling, and DevOps practices</p>
       </article>
