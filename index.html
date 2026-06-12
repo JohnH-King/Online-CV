@@ -11,6 +11,9 @@
   <link rel="canonical" href="https://johnh-king.github.io/Online-CV/">
   <meta property="og:url" content="https://johnh-king.github.io/Online-CV/">
   <title>John King CV</title>
+  <script>
+    document.documentElement.classList.add('booting');
+  </script>
 
 
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
@@ -22,6 +25,26 @@
 </head>
 
 <body> <!-- onload="nasa()"-->
+
+  <div class="boot-overlay" aria-hidden="true">
+    <div class="boot-panel">
+      <div class="boot-topline">
+        <span>NEXUS PROFILE OS</span>
+        <span>v2026.06</span>
+      </div>
+      <h2>Authorizing John King</h2>
+      <div class="boot-grid">
+        <span>Identity packet</span>
+        <strong>verified</strong>
+        <span>RAG layer</span>
+        <strong>armed</strong>
+        <span>Agent runtime</span>
+        <strong>online</strong>
+      </div>
+      <div class="boot-progress"><span></span></div>
+      <p>Loading portfolio interface</p>
+    </div>
+  </div>
 
   <!-- loading nasa API on load, instead of through an Element -->
   <div class="topnav">
@@ -40,6 +63,11 @@
 
   <main class="page-content">
     <section id="about" class="page-section hero-panel">
+      <div class="corp-status-bar" aria-label="Profile status">
+        <span>Profile: John King</span>
+        <span>Build status: online</span>
+        <span>NEXUS-ready</span>
+      </div>
       <div class="hero-layout">
         <aside class="hero-media" aria-label="Profile and academic credential">
           <div class="hero-image-card">
@@ -51,20 +79,20 @@
             <small>North-West University</small>
           </div>
           <div class="sidequest-card">
-            <span>Side quests</span>
-            <strong>LLM models, RAG, NEXUS, agents, APIs, JWT</strong>
+            <span>Protocol deck</span>
+            <strong>LLM models / RAG / NEXUS / Agents / APIs / JWT</strong>
           </div>
         </aside>
         <div class="hero-copy">
-          <p class="eyebrow">John King | Web, Java & Android developer</p>
+          <p class="eyebrow">John King | Corpo-grade systems, practical delivery</p>
           <h1 class="page-title">I build useful software with a bit of <span class="title-marker">fight</span> in it.</h1>
-          <p class="hero-lede">I am an NWU Honours graduate who likes the practical side of code: tidy interfaces, stubborn backend workflows, Android apps, and production systems that still have to behave after the demo is over.</p>
+          <p class="hero-lede">I am an NWU Honours graduate who likes the practical side of code: sharp interfaces, stubborn backend workflows, Android apps, secure APIs, and production systems that still have to behave after the demo is over.</p>
           <div class="hero-console" aria-label="Developer working style">
             <div class="console-window-bar" aria-hidden="true">
               <span></span><span></span><span></span>
             </div>
-            <p><span>john@portfolio:~$</span> build --from-idea --to-working-demo</p>
-            <code>ship &gt; polish &gt; support &gt; repeat</code>
+            <p><span>john@nexus-profile:~$</span> deploy --rag --agents --jwt</p>
+            <code>prototype &gt; harden &gt; support &gt; repeat</code>
           </div>
           <div class="hero-metrics" aria-label="Profile highlights">
             <div>
@@ -72,12 +100,12 @@
               <span>Web + backend</span>
             </div>
             <div>
-              <strong>Java + SQL</strong>
-              <span>Data that behaves</span>
+              <strong>Secure APIs</strong>
+              <span>JWT + data flows</span>
             </div>
             <div>
-              <strong>Android</strong>
-              <span>Native app builds</span>
+              <strong>LLM-ready</strong>
+              <span>RAG + agents</span>
             </div>
           </div>
           <ul class="hero-highlights">
@@ -344,6 +372,36 @@
       }
       setTheme(isDark);
     });
+
+    (function runBootReveal() {
+      const root = document.documentElement;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const finishBoot = () => {
+        if (!root.classList.contains('booting')) {
+          return;
+        }
+
+        if (reducedMotion) {
+          root.classList.remove('booting');
+          root.classList.add('boot-complete');
+          return;
+        }
+
+        root.classList.add('boot-exiting');
+        window.setTimeout(() => {
+          root.classList.remove('booting', 'boot-exiting');
+          root.classList.add('boot-complete');
+        }, 520);
+      };
+
+      if (document.readyState === 'complete') {
+        window.setTimeout(finishBoot, reducedMotion ? 0 : 1450);
+      } else {
+        window.addEventListener('load', () => {
+          window.setTimeout(finishBoot, reducedMotion ? 0 : 1450);
+        }, { once: true });
+      }
+    })();
   </script>
 </body>
 
